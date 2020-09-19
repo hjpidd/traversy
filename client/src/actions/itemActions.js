@@ -1,6 +1,13 @@
 import axios from 'axios';
 import {GET_ITEMS, ADD_ITEM, DELETE_ITEM, ITEMS_LOADING} from './types';
 
+
+const apiClient = axios.create({
+    baseURL: process.env.baseURL,
+    withCredentials: false,
+    crossDomian: true,
+});
+
 export const getItems = () => dispatch => {
     dispatch(setItemsLoading());
     axios
